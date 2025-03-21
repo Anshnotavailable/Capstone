@@ -1,0 +1,2 @@
+# This file ensures the Files directory is included in Git
+# The actual .data files are still ignored as per the .gitignore configuration 
