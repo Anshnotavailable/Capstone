@@ -15,6 +15,7 @@ from Backend.Automation import Automation
 from Backend.SpeechToText import SpeechRecognition
 from Backend.Chatbot import Chatbot
 from Backend.TextToSpeech import TextToSpeech
+from Backend.screen_analysis import main
 
 from dotenv import dotenv_values
 from asyncio import run
@@ -110,6 +111,8 @@ def MainExecution():
         if "generate" in queries:
             ImageGenerationQuery = str(queries)
             ImageExecution = True
+        if "analyze screen" in queries or "analyse screen" in queries:
+            main()
 
     for queries in Decision:
         if TaskExecution == False:

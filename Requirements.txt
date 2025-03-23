@@ -17,3 +17,9 @@ PyQt5
 asyncio
 datetime
 json5
+google-generativeai
+opencv-python
+numpy
+mss
+playsound
+SpeechRecognition
