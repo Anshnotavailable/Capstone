@@ -90,6 +90,12 @@ pygame
 edge-tts
 PyQt5
 webdriver-manager
+google-generativeai
+opencv-python
+numpy
+mss
+playsound
+SpeechRecognition
 ```
 
 ## 🚀 Installation
