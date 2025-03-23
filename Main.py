@@ -111,7 +111,7 @@ def MainExecution():
         if "generate" in queries:
             ImageGenerationQuery = str(queries)
             ImageExecution = True
-        if "analyze screen" in queries or "analyse screen" in queries:
+        if "analyze screen" in queries or "analyse screen" in queries or "analyzed screen" in queries:
             SetAssistantStatus("Analyzing screen...")
             analyze_once()
             SetAssistantStatus("Available...")
