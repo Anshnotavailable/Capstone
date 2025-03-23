@@ -63,6 +63,24 @@ def listen_for_command():
             print(f"[⚠️] Error during recognition: {e}")
             return None
 
+def analyze_once():
+    """Analyzes the screen once and returns to the main program.
+    This is a non-blocking version for integration with Jarvis."""
+    print("\n[📸] Capturing screen...")
+    image = capture_screen()
+
+    print("[🤖] Analyzing screen with Google AI...")
+    try:
+        analysis = analyze_screen(image)
+        print("[🗣️] AI Analysis:", analysis)
+
+        # Speak the AI-generated analysis
+        speak(analysis)
+        return True
+    except Exception as e:
+        print(f"[⚠️] Error analyzing screen: {str(e)}")
+        return False
+
 def main():
     """Waits for a command to analyze the screen."""
     while True:
