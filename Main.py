@@ -111,10 +111,15 @@ def MainExecution():
         if "generate" in queries:
             ImageGenerationQuery = str(queries)
             ImageExecution = True
-        if "analyze screen" in queries or "analyse screen" in queries or "analyzed screen" in queries:
+        if "analyze screen" in queries or "analyse screen" in queries or "analyzed screen" in queries or "what is on my screen" in queries or "what's on my screen" in queries:
             SetAssistantStatus("Analyzing screen...")
-            analyze_once()
+            analysis = analyze_once()
+            if analysis:
+                ShowTextToScreen(f"{Assistantname} : {analysis}")
+                SetAssistantStatus("Answering...")
+                TextToSpeech(analysis)
             SetAssistantStatus("Available...")
+            return True
 
     for queries in Decision:
         if TaskExecution == False:

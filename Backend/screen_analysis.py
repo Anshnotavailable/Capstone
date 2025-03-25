@@ -7,6 +7,7 @@ import speech_recognition as sr
 from PIL import Image
 from Backend.TTS_B import speak  # Your custom TTS function
 from dotenv import dotenv_values
+import json
 
 # Configure Google Gemini AI API
 env_vars = dotenv_values(".env")
@@ -30,7 +31,7 @@ def capture_screen():
 def analyze_screen(image):
     """Sends the screen frame to Google's Gemini AI for analysis."""
     model = genai.GenerativeModel("gemini-2.0-flash-exp")
-    response = model.generate_content(["Describe what is happening in this screen frame:", image])
+    response = model.generate_content(["Describe in short what is happening in this screen frame:", image])
     return response.text
 
 def listen_for_command():
@@ -74,12 +75,27 @@ def analyze_once():
         analysis = analyze_screen(image)
         print("[🗣️] AI Analysis:", analysis)
 
-        # Speak the AI-generated analysis
-        speak(analysis)
-        return True
+        # Store the screen analysis in the chat log
+        try:
+            with open(r"Data\ChatLog.json", "r") as f:
+                chat_log = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            chat_log = []
+
+        # Add the screen analysis to the chat log
+        chat_log.append({
+            "role": "system",
+            "content": f"Screen Analysis: {analysis}"
+        })
+
+        # Save the updated chat log
+        with open(r"Data\ChatLog.json", "w") as f:
+            json.dump(chat_log, f, indent=4)
+
+        return analysis  # Return the analysis instead of speaking it
     except Exception as e:
         print(f"[⚠️] Error analyzing screen: {str(e)}")
-        return False
+        return None
 
 def main():
     """Waits for a command to analyze the screen."""
@@ -94,6 +110,23 @@ def main():
             try:
                 analysis = analyze_screen(image)
                 print("[🗣️] AI Analysis:", analysis)
+
+                # Store the screen analysis in the chat log
+                try:
+                    with open(r"Data\ChatLog.json", "r") as f:
+                        chat_log = json.load(f)
+                except (FileNotFoundError, json.JSONDecodeError):
+                    chat_log = []
+
+                # Add the screen analysis to the chat log
+                chat_log.append({
+                    "role": "system",
+                    "content": f"Screen Analysis: {analysis}"
+                })
+
+                # Save the updated chat log
+                with open(r"Data\ChatLog.json", "w") as f:
+                    json.dump(chat_log, f, indent=4)
 
                 # Speak the AI-generated analysis
                 speak(analysis)  
