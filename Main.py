@@ -15,7 +15,8 @@ from Backend.Automation import Automation
 from Backend.SpeechToText import SpeechRecognition
 from Backend.Chatbot import Chatbot
 from Backend.TextToSpeech import TextToSpeech
-from Backend.screen_analysis import analyze_once
+from Backend.screen_analysis import analyze_once as analyze_screen_once
+from Backend.CameraAnalysis import analyze_once as analyze_camera_once
 
 from dotenv import dotenv_values
 from asyncio import run
@@ -113,7 +114,16 @@ def MainExecution():
             ImageExecution = True
         if "analyze screen" in queries or "analyse screen" in queries or "analyzed screen" in queries or "what is on my screen" in queries or "what's on my screen" in queries:
             SetAssistantStatus("Analyzing screen...")
-            analysis = analyze_once()
+            analysis = analyze_screen_once()
+            if analysis:
+                ShowTextToScreen(f"{Assistantname} : {analysis}")
+                SetAssistantStatus("Answering...")
+                TextToSpeech(analysis)
+            SetAssistantStatus("Available...")
+            return True
+        if "analyze camera" in queries or "analysing camera" in queries or "Analyzing camera" in queries or "analyse camera" in queries or "analyzed camera" in queries or "what is on my camera" in queries or "what's on my camera" in queries:
+            SetAssistantStatus("Analyzing camera...")
+            analysis = analyze_camera_once()
             if analysis:
                 ShowTextToScreen(f"{Assistantname} : {analysis}")
                 SetAssistantStatus("Answering...")
