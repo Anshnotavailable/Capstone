@@ -131,6 +131,7 @@ SpeechRecognition
    InputLanguage = en
    AssistantVoice = en-CA-LiamNeural
    HuggingFaceAPIKey = your_huggingface_api_key
+   GeminiAPIKey = your_gemini_api_key
    ```
 
 ## 🚢 Deployment Considerations
