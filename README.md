@@ -145,7 +145,7 @@ SpeechRecognition
 
 2. Clone the repository:
    ```
-   git clone https://github.com/atharva-shinde7/JARVIS-AI.git
+   git clone "https://github.com/Anshnotavailable/Capstone.git"
    cd JARVIS-AI
    ```
 
@@ -369,13 +369,6 @@ You can customize Jarvis by modifying these settings in the `.env` file:
 - **InputLanguage**: Your preferred language for voice input
 - **AssistantVoice**: The voice model for speech synthesis
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgements
 
@@ -385,7 +378,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-<p align="center">Created with ❤️ by Atharva Shinde</p> 
 
 # Capstone
 This is an Project made by Leader-Anushka Wani and fellow teammates Ansh Thakare , Shaurya Panhale and Shriya Sabnis
