@@ -381,4 +381,4 @@ You can customize Jarvis by modifying these settings in the `.env` file:
 
 # Capstone
 This is an Project made by Leader-Anushka Wani and fellow teammates Ansh Thakare , Shaurya Panhale and Shriya Sabnis
-1e989e996055646c857a2debd4244151343db766
+
