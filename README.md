@@ -1,3 +1,4 @@
+HEAD
 # 🤖 Jarvis AI Assistant
 
 ![Jarvis AI](Frontend/Graphics/Jarvis.gif)
@@ -385,3 +386,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 <p align="center">Created with ❤️ by Atharva Shinde</p> 
+
+# Capstone
+This is an Project made by Leader-Anushka Wani and fellow teammates Ansh Thakare , Shaurya Panhale and Shriya Sabnis
+1e989e996055646c857a2debd4244151343db766
