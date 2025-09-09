@@ -1,0 +1,23 @@
+Dear Lenovo,
+
+I hope this letter finds you well. As per your request, I am writing to provide you with the code for "Hello World" in C++ language.
+
+Here is the simple code:
+
+```cpp
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
+```
+
+To explain this code, we start by including the iostream library, which allows us to perform input/output operations. The `main()` function is the entry point of the program. Inside `main()`, we use `std::cout` to print "Hello, World!" to the console, followed by `std::endl` to insert a newline character. Finally, the program returns 0 to indicate successful execution.
+
+You can save this code in a file with a `.cpp` extension (e.g., `hello.cpp`) and compile it using a C++ compiler (e.g., `g++ hello.cpp -o hello`). Running the resulting executable will display "Hello, World!" on the screen.
+
+I hope this helps you get started with C++ programming. If you have any further questions or need assistance with anything else, please don't hesitate to ask.
+
+Best regards,
+[Your Name]

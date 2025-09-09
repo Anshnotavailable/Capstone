@@ -7,7 +7,7 @@ from Frontend.GUI import (
     AnswerModifier,
     QueryModifier,
     GetMicrophoneStatus,
-    GetAssistantStatus
+    GetAssistantStatus,
 )
 from Backend.Model import FirstLayerDMM
 from Backend.RealtimeSearchEngine import RealtimeSearchEngine
@@ -32,7 +32,7 @@ Username = env_vars.get("Username")
 Assistantname = env_vars.get("Assistantname")
 DefaultMessage = f'''{Username} : Hello {Assistantname}, How are you?
 {Assistantname} : Welcome {Username}, I am doing well. How may I help you?'''
-subprocess = []
+processes = []
 Functions = ["open", "close", "play", "system", "content", "google search", "youtube search"]
 
 def ShowDefaultChatIfNoChats():
@@ -146,7 +146,7 @@ def MainExecution():
             p1 = subprocess.Popen(['python', r'Backend\ImageGeneration.py'],
                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                   stdin=subprocess.PIPE, shell=False)
-            subprocess.append(p1)
+            processes.append(p1)
 
         except Exception as e:
             print(f"Error startinf ImageGeneration.py: {e}")
